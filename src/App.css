@@ -32,7 +32,47 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Cursor */
+.hover-this .hover-anim {
+  pointer-events: none;
+  transition: transform 0.2s linear;
+}
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  padding: 0.3rem;
+  background-color: #8088E6;
+  border-radius: 50%;
+  /*mix-blend-mode: exclusion;*/
+  transition: transform 0.3s ease, opacity 0.4s ease;
+  z-index: 99999;
+}
+
+.cursor-active {
+  transform: translate(-50%, -50%) scale(8);
+  opacity: 0.1;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+@media (max-width:767px),
+(hover:none),
+(pointer:coarse) {
+  .cursor {
+    display: none !important;
+  }
+
+  .hover-this .hover-anim {
+    transform: none !important;
+    transition: none;
   }
 }
